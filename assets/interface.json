@@ -1,4 +1,6 @@
 {
+    "name": "MWA",
+    "url": "https://github.com/YlovexLN/MWA",
     "controller": [
         {
             "name": "ADB 默认方式",
