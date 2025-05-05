@@ -1,0 +1,15 @@
+{
+    "StartUp": {
+        "post_wait_freezes": 300,
+        "next": [
+            "StartGame"
+        ],
+        "interrupt": [
+            "StartGame"
+        ]
+    },
+    "StartGame": {
+        "action": "StartApp",
+        "package": "com.cipaishe.wuhua.bilibili"
+    }
+}
