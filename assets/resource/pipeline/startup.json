@@ -4,9 +4,7 @@
         "next": [
             "StartGame"
         ],
-        "interrupt": [
-            "StartGame"
-        ]
+        "interrupt": []
     },
     "StartGame": {
         "action": "StartApp",
