@@ -2,12 +2,19 @@
     "StartUp": {
         "post_wait_freezes": 300,
         "next": [
-            "StartGame"
+            "Bulletin"
         ],
-        "interrupt": []
+        "interrupt": [
+            "StartGame"
+        ]
     },
     "StartGame": {
         "action": "StartApp",
         "package": "com.cipaishe.wuhua.bilibili"
+    },
+    "Bulletin": {
+        "recognition": "TemplateMatch",
+        "template": "bulletin.png",
+        "action": "Click"
     }
 }
