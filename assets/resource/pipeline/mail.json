@@ -1,0 +1,37 @@
+{
+    "Mail": {
+        "post_wait_freezes": 300,
+        "next": [
+            "WuZi",
+            "Home"
+        ],
+        "interrupt": [
+            "AllClaim",
+            "GoMail"
+        ]
+    },
+    "GoMail": {
+        "recognition": "OCR",
+        "expected": "邮件",
+        "roi": [
+            0,
+            366,
+            238,
+            329
+        ],
+        "action": "Click",
+        "target": true
+    },
+    "AllClaim": {
+        "recognition": "OCR",
+        "expected": "全部领取",
+        "roi": [
+            25,
+            621,
+            391,
+            98
+        ],
+        "action": "Click",
+        "target": true
+    }
+}

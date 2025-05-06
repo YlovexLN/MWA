@@ -24,6 +24,14 @@
         {
             "name": "启动游戏",
             "entry": "StartUp"
+        },
+        {
+            "name": "邮件",
+            "entry": "Mail"
+        },
+        {
+            "name": "派遣公司",
+            "entry": "PaiQian"
         }
     ],
     "option": {}

@@ -1,0 +1,71 @@
+{
+    "PaiQian": {
+        "post_wait_freezes": 300,
+        "next": [],
+        "interrupt": []
+    },
+    "GoPaiQian": {
+        "recognition": "OCR",
+        "expected": "派遣公司",
+        "roi": [
+            847,
+            52,
+            433,
+            668
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "GanYing"
+        ]
+    },
+    "GanYing": {
+        "recognition": "OCR",
+        "expected": "感应",
+        "roi": [
+            918,
+            573,
+            362,
+            147
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "ZiYuan"
+        ],
+        "doc": "获取感应"
+    },
+    "ZiYuan": {
+        "recognition": "OCR",
+        "expected": "资源",
+        "roi": [
+            918,
+            573,
+            362,
+            147
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "PaiQian-WuZi"
+        ],
+        "doc": "获取资源"
+    },
+    "PaiQian-WuZi": {
+        "recognition": "OCR",
+        "expected": "获得物资",
+        "action": "Click",
+        "target": true,
+        "next": [
+            "PaiQian-Back"
+        ]
+    },
+    "PaiQian-Back": {
+        "next": [
+            "StartEnd"
+        ],
+        "interrupt": [
+            "Back"
+        ]
+    }
+}

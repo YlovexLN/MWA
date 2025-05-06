@@ -2,9 +2,14 @@
     "StartUp": {
         "post_wait_freezes": 300,
         "next": [
-            "Bulletin"
+            "StartEnd"
         ],
         "interrupt": [
+            "sign",
+            "Info",
+            "WuZi",
+            "Login",
+            "Bulletin",
             "StartGame"
         ]
     },
@@ -12,9 +17,32 @@
         "action": "StartApp",
         "package": "com.cipaishe.wuhua.bilibili"
     },
+    "StartEnd": {
+        "recognition": "OCR",
+        "expected": "器者",
+        "action": "StopTask"
+    },
     "Bulletin": {
         "recognition": "TemplateMatch",
         "template": "bulletin.png",
+        "action": "Click",
+        "target": true
+    },
+    "Login": {
+        "recognition": "OCR",
+        "expected": "点击任意处进入游戏",
+        "action": "Click",
+        "target": true
+    },
+    "Info": {
+        "recognition": "TemplateMatch",
+        "template": "info.png",
+        "action": "Click",
+        "target": true
+    },
+    "sign": {
+        "recognition": "TemplateMatch",
+        "template": "sign.png",
         "action": "Click",
         "target": true
     }

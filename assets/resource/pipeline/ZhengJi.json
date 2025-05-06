@@ -1,0 +1,138 @@
+{
+    "ZhengJi": {
+        "post_wait_freezes": 300,
+        "next": [
+            "StartZhengJi"
+        ],
+        "interrupt": [
+            "EndZhengJi"
+        ]
+    },
+    "EndZhengJi": {
+        "next": [
+            "StartZhengJi-1"
+        ],
+        "interrupt": [
+            "WuZi",
+            "Repeat",
+            "Yes",
+            "SkipZhengJi",
+            "Open",
+            "AllYes",
+            "GoZhengJi"
+        ]
+    },
+    "GoZhengJi": {
+        "recognition": "OCR",
+        "expected": "器者征集",
+        "roi": [
+            847,
+            52,
+            433,
+            668
+        ],
+        "action": "Click",
+        "target": true
+    },
+    "Open": {
+        "recognition": "OCR",
+        "expected": "长按开启",
+        "roi": [
+            475,
+            541,
+            354,
+            148
+        ],
+        "action": "Swipe",
+        "begin": [
+            310,
+            505,
+            20,
+            21
+        ],
+        "end": [
+            310,
+            505,
+            700,
+            21
+        ],
+        "duration": 5000
+    },
+    "SkipZhengJi": {
+        "recognition": "TemplateMatch",
+        "template": "Skip.png",
+        "roi": [
+            1101,
+            0,
+            179,
+            101
+        ],
+        "action": "Click",
+        "target": true
+    },
+    "Repeat": {
+        "recognition": "OCR",
+        "expected": "重复获取",
+        "action": "Click",
+        "target": true
+    },
+    "YesZhengJi": {
+        "recognition": "TemplateMatch",
+        "template": "YesZhengJi.png",
+        "roi": [
+            391,
+            551,
+            506,
+            169
+        ],
+        "action": "Click",
+        "target": true
+    },
+    "StartZhengJi": {
+        "recognition": "OCR",
+        "expected": "开始征集",
+        "roi": [
+            934,
+            497,
+            346,
+            223
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "ZhengJiAddEnd"
+        ],
+        "interrupt": [
+            "Add"
+        ]
+    },
+    "StartZhengJi-1": {
+        "recognition": "OCR",
+        "expected": "开始征集",
+        "roi": [
+            934,
+            497,
+            346,
+            223
+        ]
+    },
+    "ZhengJiAdd": {
+        "next": [
+            "Add"
+        ]
+    },
+    "ZhengJiAddEnd": {
+        "recognition": "OCR",
+        "expected": "4",
+        "next": [
+            "Yes"
+        ],
+        "roi": [
+            540,
+            317,
+            204,
+            65
+        ],
+        "timeout": 5000
+    }
+}
