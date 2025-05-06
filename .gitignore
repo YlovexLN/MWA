@@ -1,3 +1,18 @@
+# others
+/MFAAvalonia/*
+!/MFAAvalonia/.gitkeep
+测试/
+/recording/
+/vision/
+/screenshot/
+/assets/resource/**/ocr/
+/MFATools/*
+!/MFATools/.gitkeep
+/launcher/*
+!/launcher/MNMA.py
+check_resource.py
+configure.py
+install.py
 # docs
 docs/node_modules
 docs/.vuepress/.temp
