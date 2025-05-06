@@ -15,6 +15,7 @@
     "Bulletin": {
         "recognition": "TemplateMatch",
         "template": "bulletin.png",
-        "action": "Click"
+        "action": "Click",
+        "target": true
     }
 }
