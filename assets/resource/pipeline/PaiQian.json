@@ -1,8 +1,10 @@
 {
     "PaiQian": {
-        "post_wait_freezes": 300,
         "next": [],
-        "interrupt": []
+        "interrupt": [
+            "GanYing",
+            "GoPaiQian"
+        ]
     },
     "GoPaiQian": {
         "recognition": "OCR",
@@ -14,10 +16,7 @@
             668
         ],
         "action": "Click",
-        "target": true,
-        "next": [
-            "GanYing"
-        ]
+        "target": true
     },
     "GanYing": {
         "recognition": "OCR",

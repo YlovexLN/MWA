@@ -3,6 +3,7 @@
     "url": "https://github.com/YlovexLN/MWA",
     "default_controller": "adb",
     "lock_controller": true,
+    "custom_title": "MWA 物华弥新小助手",
     "controller": [
         {
             "name": "ADB 默认方式",
