@@ -1,11 +1,10 @@
 {
     "Mail": {
-        "post_wait_freezes": 300,
         "next": [
-            "WuZi",
-            "Home"
+            "MailEnd"
         ],
         "interrupt": [
+            "WuZi",
             "AllClaim",
             "GoMail"
         ]
@@ -33,5 +32,12 @@
         ],
         "action": "Click",
         "target": true
+    },
+    "MailEnd": {
+        "recognition": "OCR",
+        "expected": [
+            "没有可领取的附件"
+        ],
+        "next": "Home"
     }
 }

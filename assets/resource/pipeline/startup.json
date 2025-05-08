@@ -18,8 +18,14 @@
         "package": "com.cipaishe.wuhua.bilibili"
     },
     "StartEnd": {
-        "recognition": "OCR",
-        "expected": "器者",
+        "recognition": "TemplateMatch",
+        "template": "StartEnd.png",
+        "roi": [
+            847,
+            52,
+            433,
+            668
+        ],
         "action": "StopTask"
     },
     "Bulletin": {
@@ -29,8 +35,14 @@
         "target": true
     },
     "Login": {
-        "recognition": "OCR",
-        "expected": "点击任意处进入游戏",
+        "recognition": "TemplateMatch",
+        "template": "Login.png",
+        "roi": [
+            0,
+            0,
+            139,
+            411
+        ],
         "action": "Click",
         "target": true
     },
@@ -44,6 +56,11 @@
         "recognition": "TemplateMatch",
         "template": "sign.png",
         "action": "Click",
-        "target": true
+        "target": [
+            445,
+            428,
+            372,
+            180
+        ]
     }
 }

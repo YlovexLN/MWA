@@ -7,7 +7,9 @@
             0,
             297,
             64
-        ]
+        ],
+        "action": "Click",
+        "target": true
     },
     "AllYes": {
         "recognition": "OCR",
