@@ -37,6 +37,7 @@
     "Login": {
         "recognition": "TemplateMatch",
         "template": "Login.png",
+        "threshold": 1,
         "roi": [
             0,
             0,
@@ -56,11 +57,6 @@
         "recognition": "TemplateMatch",
         "template": "sign.png",
         "action": "Click",
-        "target": [
-            445,
-            428,
-            372,
-            180
-        ]
+        "target": true
     }
 }
