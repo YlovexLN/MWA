@@ -18,6 +18,7 @@
         "package": "com.cipaishe.wuhua.bilibili"
     },
     "StartEnd": {
+        "pre_wait_freezes": 300,
         "recognition": "TemplateMatch",
         "template": "StartEnd.png",
         "roi": [
@@ -35,17 +36,21 @@
         "target": true
     },
     "Login": {
-        "recognition": "TemplateMatch",
-        "template": "Login.png",
-        "threshold": 1,
+        "recognition": "OCR",
+        "expected": "我已仔细阅读并同意",
         "roi": [
-            0,
-            0,
-            139,
-            411
+            439,
+            555,
+            387,
+            78
         ],
         "action": "Click",
-        "target": true
+        "target": [
+            399,
+            389,
+            481,
+            219
+        ]
     },
     "Info": {
         "recognition": "TemplateMatch",
