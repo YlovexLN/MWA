@@ -1,10 +1,9 @@
 {
     "PaiQian": {
-        "next": [],
-        "interrupt": [
-            "GanYing",
+        "next": [
             "GoPaiQian"
-        ]
+        ],
+        "interrupt": []
     },
     "GoPaiQian": {
         "recognition": "OCR",
@@ -16,7 +15,10 @@
             668
         ],
         "action": "Click",
-        "target": true
+        "target": true,
+        "next": [
+            "GanYing"
+        ]
     },
     "GanYing": {
         "recognition": "OCR",

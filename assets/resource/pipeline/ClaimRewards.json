@@ -1,0 +1,99 @@
+{
+    "Rewards": {
+        "post_wait_freezes": 300,
+        "next": [
+            "GoTask"
+        ],
+        "interrupt": [],
+        "timeout": 500,
+        "on_error": "Home"
+    },
+    "GoTask": {
+        "recognition": "OCR",
+        "expected": "任务",
+        "roi": [
+            676,
+            525,
+            604,
+            195
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "Daily"
+        ],
+        "doc": "领取任务奖励"
+    },
+    "Daily": {
+        "recognition": "OCR",
+        "expected": "全部领取",
+        "roi": [
+            152,
+            623,
+            1128,
+            97
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "Weekly"
+        ],
+        "doc": "领取日常任务奖励",
+        "timeout": 500,
+        "on_error": "GoWeekly"
+    },
+    "Weekly": {
+        "recognition": "TemplateMatch",
+        "template": "Weekly.png",
+        "roi": [
+            1,
+            109,
+            284,
+            428
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "WeeklyClaim"
+        ],
+        "doc": "领取周常任务奖励"
+    },
+    "GoWeekly": {
+        "recognition": "TemplateMatch",
+        "template": "Weekly.png",
+        "roi": [
+            1,
+            109,
+            284,
+            428
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "WeeklyClaim"
+        ],
+        "doc": "领取周常任务奖励"
+    },
+    "WeeklyClaim": {
+        "recognition": "OCR",
+        "expected": "全部领取",
+        "roi": [
+            152,
+            623,
+            1128,
+            97
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "Home"
+        ],
+        "doc": "点击领取奖励",
+        "timeout": 500,
+        "on_error": "GoHome"
+    },
+    "RewardsEnd": {
+        "action": "Click",
+        "target": "Home"
+    }
+}

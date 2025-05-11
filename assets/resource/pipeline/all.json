@@ -11,6 +11,18 @@
         "action": "Click",
         "target": true
     },
+    "GoHome": {
+        "recognition": "TemplateMatch",
+        "template": "Home.png",
+        "roi": [
+            -2,
+            0,
+            297,
+            64
+        ],
+        "action": "Click",
+        "target": true
+    },
     "AllYes": {
         "recognition": "OCR",
         "expected": "全部确认",

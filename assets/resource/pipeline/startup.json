@@ -18,9 +18,14 @@
         "package": "com.cipaishe.wuhua.bilibili"
     },
     "StartEnd": {
-        "pre_wait_freezes": 300,
+        "pre_wait_freezes": {
+            "time": 500,
+            "threshold": 0.95,
+            "method": 5
+        },
         "recognition": "TemplateMatch",
         "template": "StartEnd.png",
+        "threshold": 0.9,
         "roi": [
             847,
             52,

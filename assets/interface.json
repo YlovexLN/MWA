@@ -30,6 +30,18 @@
         {
             "name": "派遣公司",
             "entry": "PaiQian"
+        },
+        {
+            "name": "器者征集",
+            "entry": "ZhengJi"
+        },
+        {
+            "name": "每日礼包",
+            "entry": "Shop"
+        },
+        {
+            "name": "任务奖励",
+            "entry": "Rewards"
         }
     ],
     "option": {}
