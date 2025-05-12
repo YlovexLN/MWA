@@ -2,10 +2,25 @@
     "StartUp": {
         "post_wait_freezes": 300,
         "next": [
-            "StartEnd"
+            "Sign",
+            "StartWHMX"
         ],
         "interrupt": [
-            "sign",
+            "GoShopRed",
+            "Info",
+            "WuZi",
+            "Login",
+            "Bulletin",
+            "StartGame"
+        ]
+    },
+    "StartWHMX": {
+        "post_wait_freezes": 300,
+        "next": [
+            "Sign"
+        ],
+        "interrupt": [
+            "GoShopRed",
             "Info",
             "WuZi",
             "Login",
@@ -19,19 +34,20 @@
     },
     "StartEnd": {
         "pre_wait_freezes": {
-            "time": 500,
-            "threshold": 0.95,
+            "time": 1000,
+            "threshold": 0.98,
             "method": 5
         },
         "recognition": "TemplateMatch",
         "template": "StartEnd.png",
-        "threshold": 0.9,
+        "threshold": 0.95,
         "roi": [
             847,
             52,
             433,
             668
         ],
+        "rate_limit": 2000,
         "action": "StopTask"
     },
     "Bulletin": {
@@ -63,10 +79,21 @@
         "action": "Click",
         "target": true
     },
-    "sign": {
+    "Sign": {
         "recognition": "TemplateMatch",
         "template": "sign.png",
         "action": "Click",
+        "threshold": 0.95,
+        "target": true,
+        "next": [
+            "StartEnd"
+        ]
+    },
+    "GoShopRed": {
+        "recognition": "TemplateMatch",
+        "template": "GoShopRed.png",
+        "action": "Click",
+        "threshold": 0.95,
         "target": true
     }
 }

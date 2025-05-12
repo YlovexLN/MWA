@@ -22,19 +22,31 @@
     },
     "GanYing": {
         "recognition": "OCR",
-        "expected": "感应",
+        "expected": [
+            "感应",
+            "暂时没有获取感应"
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "GanYingAdd"
+        ],
+        "doc": "获取感应"
+    },
+    "GanYingAdd": {
+        "recognition": "OCR",
+        "expected": "感应增加",
         "roi": [
-            918,
-            573,
-            362,
-            147
+            304,
+            34,
+            649,
+            190
         ],
         "action": "Click",
         "target": true,
         "next": [
             "ZiYuan"
-        ],
-        "doc": "获取感应"
+        ]
     },
     "ZiYuan": {
         "recognition": "OCR",
