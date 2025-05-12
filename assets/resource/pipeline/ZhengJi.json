@@ -5,7 +5,7 @@
             "StartZhengJi"
         ],
         "interrupt": [
-            "EndZhengJi"
+            "EndZhengJi-1"
         ],
         "timeout": 2000,
         "on_error": [
@@ -13,11 +13,11 @@
             "Home"
         ]
     },
-    "EndZhengJi": {
+    "EndZhengJi-1": {
         "post_wait_freezes": 300,
         "next": [
-            "StartEnd",
-            "StartZhengJi-1"
+            "StartZhengJi-1",
+            "EndZhengJi-2"
         ],
         "interrupt": [
             "NoCompletedQueue",
@@ -33,6 +33,19 @@
         "on_error": [
             "Home"
         ]
+    },
+    "EndZhengJi-2": {
+        "post_wait_freezes": 300,
+        "recognition": "TemplateMatch",
+        "template": "EndZhengJi.png",
+        "threshold": 0.95,
+        "roi": [
+            847,
+            52,
+            433,
+            668
+        ],
+        "action": "StopTask"
     },
     "GoZhengJi": {
         "recognition": "OCR",
