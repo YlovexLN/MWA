@@ -43,12 +43,27 @@
     },
     "Supply": {
         "recognition": "OCR",
-        "expected": "巡时补给",
+        "expected": "循时补给",
         "roi": [
             0,
-            161,
-            242,
-            125
+            165,
+            244,
+            429
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "Free"
+        ]
+    },
+    "Free": {
+        "recognition": "OCR",
+        "expected": "免费",
+        "roi": [
+            216,
+            167,
+            279,
+            553
         ],
         "action": "Click",
         "target": true,
