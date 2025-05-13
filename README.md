@@ -68,11 +68,11 @@
 
 ## Star History
 
-<a href="https://www.star-history.com/YlovxLN/MWA&Date">
+<a href="https://www.star-history.com/YlovexLN/MWA&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=YlovxLN/MWA&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=YlovxLN/MWA&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=YlovxLN/MWA&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=YlovexLN/MWA&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=YlovexLN/MWA&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=YlovexLN/MWA&type=Date" />
  </picture>
 </a>
 
@@ -83,7 +83,7 @@ UI 由 **[MFAAvalonia](https://github.com/SweetSmellFox/MFAAvalonia)**~~ 大力�
 
 感谢以下开发者对本项目作出的贡献:
 
-[![Contributors](https://contrib.rocks/image?repo=YlovxLN/MWA&max=1000)](https://github.com/YlovxLN/MWA/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=YlovexLN/MWA&max=1000)](https://github.com/YlovexLN/MWA/graphs/contributors)
 
 ## Join us
 
