@@ -79,11 +79,11 @@
 ## 鸣谢
 
 本项目由 **[MaaFramework](https://github.com/MaaXYZ/MaaFramework)** 强力驱动！  
-UI 由 [MFAAvalonia](https://github.com/SweetSmellFox/MFAAvalonia)~~ 大力支持！
+UI 由 **[MFAAvalonia](https://github.com/SweetSmellFox/MFAAvalonia)**~~ 大力支持！
 
 感谢以下开发者对本项目作出的贡献:
 
-[![Contributors](https://contrib.rocks/image?repo=MWA/MWA&max=1000)](https://github.com/YlovxLN/MWA/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=YlovxLN/MWA&max=1000)](https://github.com/YlovxLN/MWA/graphs/contributors)
 
 ## Join us
 
