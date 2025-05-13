@@ -1,7 +1,7 @@
 <!-- markdownlint-disable MD033 MD041 -->
 <div align="center">
 
-<img alt="LOGO" src="https://raw.githubusercontent.com/YlovexLN/MWA/refs/heads/main/logo.ico" width="256" height="256" />
+<img alt="LOGO" src="https://raw.githubusercontent.com/YlovexLN/MWA/refs/heads/main/logo.ico" width="180" height="180" />
 
 # MWA
 
