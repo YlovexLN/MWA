@@ -93,7 +93,11 @@
         "on_error": "GoHome"
     },
     "RewardsEnd": {
-        "action": "Click",
-        "target": "Home"
+        "next": [
+            "StartEnd"
+        ],
+        "interrupt": [
+            "Home"
+        ]
     }
 }

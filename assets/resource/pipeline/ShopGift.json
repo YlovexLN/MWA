@@ -92,6 +92,9 @@
         "action": "Click",
         "target": true,
         "next": [
+            "StartEnd"
+        ],
+        "interrupt": [
             "Home"
         ]
     }

@@ -1,0 +1,232 @@
+{
+    "YouLi": {
+        "post_wait_freezes": 300,
+        "next": [
+            "GoYouLi"
+        ],
+        "interrupt": [],
+        "timeout": 3000,
+        "on_error": "YouLiEnd"
+    },
+    "GoYouLi": {
+        "post_wait_freezes": 300,
+        "recognition": "TemplateMatch",
+        "template": "YouLi.png",
+        "threshold": 0.94,
+        "roi": [
+            680,
+            533,
+            600,
+            187
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "YouLiRewards"
+        ],
+        "doc": "领取任务奖励"
+    },
+    "YouLiRewards": {
+        "recognition": "OCR",
+        "expected": "任务",
+        "roi": [
+            0,
+            70,
+            171,
+            320
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "YouLiLinQuBenZhou"
+        ],
+        "doc": "领取任务奖励",
+        "timeout": 3000,
+        "on_error": "YouLiRewardsTiaoZhan"
+    },
+    "YouLiLinQuBenZhou": {
+        "recognition": "OCR",
+        "expected": "全部领取",
+        "roi": [
+            529,
+            563,
+            751,
+            157
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "YouLiLinQuBenZhouWuZi"
+        ],
+        "doc": "领取任务",
+        "timeout": 3000,
+        "on_error": "YouLiRewardsTiaoZhanError"
+    },
+    "YouLiLinQuBenZhouWuZi": {
+        "post_wait_freezes": 300,
+        "recognition": "OCR",
+        "expected": "获得物资",
+        "action": "Click",
+        "target": true,
+        "next": [
+            "YouLiRewardsTiaoZhan"
+        ],
+        "timeout": 3000,
+        "on_error": "GoYouLi"
+    },
+    "YouLiRewardsTiaoZhan": {
+        "recognition": "OCR",
+        "expected": "挑战",
+        "roi": [
+            133,
+            86,
+            752,
+            190
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "YouLiLinQuTiaoZhan"
+        ],
+        "doc": "领取日常任务奖励",
+        "timeout": 3000,
+        "on_error": "YouLiJianLi"
+    },
+    "YouLiRewardsTiaoZhanError": {
+        "recognition": "OCR",
+        "expected": "挑战",
+        "roi": [
+            133,
+            86,
+            752,
+            190
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "YouLiLinQuTiaoZhan"
+        ],
+        "doc": "领取日常任务奖励",
+        "timeout": 3000,
+        "on_error": "YouLiJianLi"
+    },
+    "YouLiLinQuTiaoZhan": {
+        "recognition": "OCR",
+        "expected": "全部领取",
+        "roi": [
+            529,
+            563,
+            751,
+            157
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "YouLiRewardsTiaoZhanWuZi"
+        ],
+        "doc": "领取挑战",
+        "timeout": 3000,
+        "on_error": "YouLiJianLiError"
+    },
+    "YouLiRewardsTiaoZhanWuZi": {
+        "post_wait_freezes": 300,
+        "recognition": "OCR",
+        "expected": "获得物资",
+        "action": "Click",
+        "target": true,
+        "next": [
+            "YouLiJianLi"
+        ]
+    },
+    "YouLiJianLi": {
+        "recognition": "OCR",
+        "expected": "奖励",
+        "roi": [
+            1,
+            109,
+            284,
+            428
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "YouLiJianLiLinQu"
+        ],
+        "doc": "点击游历奖励，没有则返回主界面",
+        "timeout": 3000,
+        "on_error": [
+            "Back",
+            "YouLiEnd"
+        ]
+    },
+    "YouLiJianLiError": {
+        "post_wait_freezes": 300,
+        "recognition": "OCR",
+        "expected": "奖励",
+        "roi": [
+            1,
+            109,
+            284,
+            428
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "YouLiJianLiLinQu"
+        ],
+        "doc": "没有识别到全部领取按钮，跳过领取"
+    },
+    "YouLiJianLiLinQu": {
+        "recognition": "OCR",
+        "expected": "全部领取",
+        "roi": [
+            152,
+            623,
+            1128,
+            97
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "YouLiJianLiLinQuWuZi"
+        ],
+        "doc": "点击领取奖励",
+        "timeout": 3000,
+        "on_error": [
+            "Back",
+            "YouLiEnd"
+        ]
+    },
+    "YouLiJianLiLinQuWuZi": {
+        "post_wait_freezes": 300,
+        "recognition": "OCR",
+        "expected": "获得物资",
+        "action": "Click",
+        "target": true,
+        "next": [
+            "YouLiEnd"
+        ],
+        "on_error": [
+            "Back",
+            "StartEnd"
+        ]
+    },
+    "YouLiEnd": {
+        "recognition": "TemplateMatch",
+        "template": "YouLi.png",
+        "threshold": 0.9,
+        "roi": [
+            680,
+            533,
+            600,
+            187
+        ],
+        "action": "StopTask",
+        "timeout": 3000,
+        "on_error": [
+            "Back",
+            "StartEnd"
+        ],
+        "doc": "游历已领取，返回主界面"
+    }
+}

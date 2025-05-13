@@ -24,10 +24,6 @@
             "entry": "StartUp"
         },
         {
-            "name": "邮件",
-            "entry": "Mail"
-        },
-        {
             "name": "派遣公司",
             "entry": "PaiQian"
         },
@@ -42,6 +38,14 @@
         {
             "name": "任务奖励",
             "entry": "Rewards"
+        },
+        {
+            "name": "游历",
+            "entry": "YouLi"
+        },
+        {
+            "name": "邮件",
+            "entry": "Mail"
         }
     ],
     "option": {}
