@@ -11,6 +11,7 @@
             "WuZi",
             "Login",
             "Bulletin",
+            "GameUpdate",
             "StartGame"
         ]
     },
@@ -25,6 +26,7 @@
             "WuZi",
             "Login",
             "Bulletin",
+            "GameUpdate",
             "StartGame"
         ]
     },
@@ -49,6 +51,18 @@
         ],
         "rate_limit": 2000,
         "action": "StopTask"
+    },
+    "GameUpdate": {
+        "recognition": "TemplateMatch",
+        "template": "GameUpdate.png",
+        "roi": [
+            381,
+            213,
+            520,
+            284
+        ],
+        "action": "Click",
+        "target": true
     },
     "Bulletin": {
         "recognition": "TemplateMatch",
