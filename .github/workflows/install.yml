@@ -1,27 +1,24 @@
 name: install
 
+# 触发工作流的条件
 on:
   push:
     tags:
-      - "v*"
+      - "v[0-9]+.[0-9]+.[0-9]+*"  # 匹配v数字.数字.数字及其后缀，如v1.2.3-alpha
     branches:
-      - "**"
-    paths:
+      - "**"  # 当推送到任意分支时触发
+    paths:    # 只有这些文件改动时才触发
       - ".github/workflows/install.yml"
       - "assets/**"
       - "**.py"
   pull_request:
     branches:
-      - "**"
-    paths:
+      - "**"  # PR提交到任意分支时触发
+    paths:    # 只有这些文件改动时才触发
       - ".github/workflows/install.yml"
       - "assets/**"
       - "**.py"
-  workflow_dispatch:
-
-permissions:
-  contents: write
-  actions: write
+  workflow_dispatch:  # 允许手动触发工作流
 
 jobs:
   meta:
@@ -32,11 +29,15 @@ jobs:
           fetch-depth: 0
       - id: set_tag
         run: |
-          is_release=${{ startsWith(github.ref, 'refs/tags/v') }}
-          tag=$(git describe --tags --match "v*" ${{ github.ref }} || true)
-          if [[ $tag != v* ]]; then
+          # 检查是否是符合格式的发布标签
+          if [[ ${{ github.ref }} =~ ^refs/tags/v[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9]+)?$ ]]; then
+            is_release=true
+            tag=${GITHUB_REF#refs/tags/}
+          else
+            is_release=false
+            # 获取最新的发布标签
             tag=$(curl -sX GET "https://api.github.com/repos/${{ github.repository }}/releases/latest" --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' | awk '/tag_name/{print $4}' FS='["]')
-            if [[ $tag != v* ]]; then
+            if [[ ! $tag =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9]+)?$ ]]; then
               tag="v0.0.0"
             fi
             tag=$(date "+$tag-%y%m%d-$(git rev-parse --short HEAD)")
@@ -64,7 +65,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        arch: [aarch64, x86_64]
+        arch: [x86_64]
       fail-fast: false
 
     steps:
@@ -83,6 +84,7 @@ jobs:
           extract: true
 
       - name: Download MFAAvalonia  
+        id: download_mfa
         uses: robinraju/release-downloader@v1  
         with:
           repository: SweetSmellFox/MFAAvalonia
@@ -91,13 +93,31 @@ jobs:
           out-file-path: "MFA"
           extract: true
 
+      - name: Clean up MFAAvalonia archive
+        if: steps.download_mfa.outputs.downloaded_files != ''
+        shell: bash
+        run: |
+          ARCHIVE_FILE="${{ fromJson(steps.download_mfa.outputs.downloaded_files)[0] }}"
+          echo "Removing archive file: $ARCHIVE_FILE"
+          rm -f "$ARCHIVE_FILE"
+
+      - name: Setup Embed Python
+        shell: powershell
+        run: |
+          ./tools/ci/setup_embed_python.ps1
+
       - name: Install
         shell: bash
         run: |
-          python ./install.py ${{ needs.meta.outputs.tag }}
-          cp MFA/MFAAvalonia.exe MFA/MFAUpdater.exe MFA/MFAUpdater.dll MFA/MFAUpdater.runtimeconfig.json MFA/av_libglesv2.dll MFA/libHarfBuzzSharp.dll MFA/libonigwrap.dll MFA/libSkiaSharp.dll MFA/uiohook.dll install/
-          mv install/MFAAvalonia.exe install/MWA.exe
-          cp logo.ico install
+          python ./tools/install.py ${{ needs.meta.outputs.tag }}
+
+          if [ -d "MFA" ]; then
+            echo "Copying MFA files to install directory..."
+            mkdir -p install
+            cp -rpvn MFA/. install/
+          else
+            echo "MFA directory not found, skipping copy."
+          fi
 
       - uses: actions/upload-artifact@v4
         with:
@@ -129,6 +149,7 @@ jobs:
           extract: true
 
       - name: Download MFAAvalonia  
+        id: download_mfa 
         uses: robinraju/release-downloader@v1  
         with:
           repository: SweetSmellFox/MFAAvalonia
@@ -137,49 +158,38 @@ jobs:
           out-file-path: "MFA"
           extract: true
 
+      - name: Clean up MFAAvalonia archive 
+        if: steps.download_mfa.outputs.downloaded_files != ''
+        shell: bash
+        run: |
+          ARCHIVE_FILE="${{ fromJson(steps.download_mfa.outputs.downloaded_files)[0] }}"
+          echo "Removing archive file: $ARCHIVE_FILE"
+          rm -f "$ARCHIVE_FILE"
+
       - name: Install
         shell: bash
         run: |
-          python ./install.py ${{ needs.meta.outputs.tag }}
-          platform_name="${{ matrix.os == 'ubuntu-latest' && 'linux' || 'macos' }}"
+          python ./tools/install.py ${{ needs.meta.outputs.tag }}
+
+
+          if [ -d "MFA" ]; then
+            echo "Copying MFA files to install directory..."
+            mkdir -p install
+            rsync -av --ignore-existing MFA/ install/
+          else
+            echo "MFA directory not found, skipping copy."
+          fi
           
-          # Create list of MFA files to copy
-          mfa_files=$(ls -A MFA)
-          
-          # Copy MFA files to install directory, skipping if they already exist
-          for file in $mfa_files; do
-            cp -n MFA/$file install/ 2>/dev/null || true
-          done
 
       - uses: actions/upload-artifact@v4
         with:
           name: MWA-${{ matrix.os == 'ubuntu-latest' && 'linux' || 'macos' }}-${{ matrix.arch }}
           path: "install"
 
-  changelog:
-    name: Generate changelog
-    runs-on: ubuntu-latest
-    outputs:
-      release_body: ${{ steps.git-cliff.outputs.content }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Generate a changelog
-        uses: orhun/git-cliff-action@v4
-        id: git-cliff
-        with:
-          config: .github/cliff.toml
-          args: -vv --latest --strip header
-        env:
-          OUTPUT: CHANGES.md
-          GITHUB_REPO: ${{ github.repository }}
 
   release:
     if: ${{ needs.meta.outputs.is_release == 'true' }}
-    needs: [meta, windows, unix, changelog]
+    needs: [meta, windows, unix]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
@@ -224,6 +234,6 @@ jobs:
         with:
           files: assets/*
           tag_name: ${{ needs.meta.outputs.tag }}
-          body: ${{ needs.changelog.outputs.release_body }}
+          
           draft: false
           prerelease: ${{ needs.meta.outputs.is_prerelease == 'true' }}
