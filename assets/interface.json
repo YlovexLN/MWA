@@ -1,9 +1,6 @@
 {
     "name": "MWA",
     "url": "https://github.com/YlovexLN/MWA",
-    "default_controller": "adb",
-    "lock_controller": true,
-    "custom_title": "MWA 物华弥新小助手",
     "controller": [
         {
             "name": "ADB 默认方式",
@@ -18,6 +15,13 @@
             ]
         }
     ],
+    "agent": {
+        "child_exec": "python",
+        "child_args": [
+            "{PROJECT_DIR}/../agent/main.py",
+            "-u"
+        ]
+    },
     "task": [
         {
             "name": "启动游戏",

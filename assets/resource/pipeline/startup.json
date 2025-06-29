@@ -3,7 +3,8 @@
         "post_wait_freezes": 300,
         "next": [
             "Sign",
-            "StartWHMX"
+            "StartWHMX",
+            "StartEnd"
         ],
         "interrupt": [
             "GoShopRed",
@@ -18,7 +19,8 @@
     "StartWHMX": {
         "post_wait_freezes": 300,
         "next": [
-            "Sign"
+            "Sign",
+            "StartEnd"
         ],
         "interrupt": [
             "GoShopRed",
@@ -35,11 +37,8 @@
         "package": "com.cipaishe.wuhua.bilibili"
     },
     "StartEnd": {
-        "pre_wait_freezes": {
-            "time": 1000,
-            "threshold": 0.98,
-            "method": 5
-        },
+        "doc": "判定是否已经在大厅",
+        "post_wait_freezes": 500,
         "recognition": "TemplateMatch",
         "template": "StartEnd.png",
         "threshold": 0.95,
@@ -49,8 +48,12 @@
             433,
             668
         ],
-        "rate_limit": 2000,
-        "action": "StopTask"
+        "next": [
+            "Bulletin",
+            "Sign"
+        ],
+        "timeout": 1000,
+        "on_error": "Lobby"
     },
     "GameUpdate": {
         "recognition": "TemplateMatch",
@@ -109,5 +112,17 @@
         "action": "Click",
         "threshold": 0.95,
         "target": true
+    },
+    "Lobby": {
+        "recognition": "TemplateMatch",
+        "template": "StartEnd.png",
+        "threshold": 0.95,
+        "roi": [
+            847,
+            52,
+            433,
+            668
+        ],
+        "action": "StopTask"
     }
 }

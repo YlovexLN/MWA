@@ -1,18 +1,3 @@
-# others
-/MFAAvalonia/*
-!/MFAAvalonia/.gitkeep
-测试/
-/recording/
-/vision/
-/screenshot/
-/assets/resource/**/ocr/
-/MFATools/*
-!/MFATools/.gitkeep
-/launcher/*
-!/launcher/MNMA.py
-check_resource.py
-configure.py
-install.py
 # docs
 docs/node_modules
 docs/.vuepress/.temp
@@ -462,13 +447,9 @@ install
 # Tools
 tools/ImageCropper/**/*.png
 
-# MacOS
-.DS_Store
-.nicegui/storage-general.json
+config
+debug
 
 # MWA
 MWA
-MWA/*
-config/maa_option.json
-assets/config/maa_pi_config.json
-/python
+.nicegui
