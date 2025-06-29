@@ -19,8 +19,7 @@
     "StartWHMX": {
         "post_wait_freezes": 300,
         "next": [
-            "Sign",
-            "StartEnd"
+            "Sign"
         ],
         "interrupt": [
             "GoShopRed",
