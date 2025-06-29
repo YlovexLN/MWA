@@ -50,7 +50,8 @@
         ],
         "next": [
             "Bulletin",
-            "Sign"
+            "Sign",
+            "StartWHMX"
         ],
         "timeout": 1000,
         "on_error": "Lobby"
@@ -114,6 +115,7 @@
         "target": true
     },
     "Lobby": {
+        "post_wait_freezes": 600,
         "recognition": "TemplateMatch",
         "template": "StartEnd.png",
         "threshold": 0.95,
@@ -123,6 +125,7 @@
             433,
             668
         ],
+        "timeout": 1000,
         "action": "StopTask"
     }
 }
