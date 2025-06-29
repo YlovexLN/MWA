@@ -50,8 +50,7 @@
         ],
         "next": [
             "Bulletin",
-            "Sign",
-            "StartWHMX"
+            "Sign"
         ],
         "timeout": 1000,
         "on_error": "Lobby"
