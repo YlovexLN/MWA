@@ -1,0 +1,56 @@
+{
+    "name": "MWA",
+    "url": "https://github.com/YlovexLN/MWA",
+    "controller": [
+        {
+            "name": "ADB 默认方式",
+            "type": "Adb"
+        }
+    ],
+    "resource": [
+        {
+            "name": "官服",
+            "path": [
+                "{PROJECT_DIR}/resource"
+            ]
+        }
+    ],
+    "agent": {
+        "child_exec": "python",
+        "child_args": [
+            "{PROJECT_DIR}/../agent/main.py",
+            "-u"
+        ]
+    },
+    "task": [
+        {
+            "name": "启动游戏",
+            "entry": "StartUp"
+        },
+        {
+            "name": "派遣公司",
+            "entry": "PaiQian"
+        },
+        {
+            "name": "器者征集",
+            "entry": "ZhengJi"
+        },
+        {
+            "name": "每日礼包",
+            "entry": "Shop"
+        },
+        {
+            "name": "任务奖励",
+            "entry": "Rewards"
+        },
+        {
+            "name": "游历",
+            "entry": "YouLi"
+        },
+        {
+            "name": "邮件",
+            "entry": "Mail"
+        }
+    ],
+    "option": {}
+}

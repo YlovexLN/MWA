@@ -1,0 +1,192 @@
+{
+    "ZhengJi": {
+        "post_wait_freezes": 300,
+        "next": [
+            "StartZhengJi"
+        ],
+        "interrupt": [
+            "EndZhengJi-1"
+        ],
+        "timeout": 2000,
+        "on_error": [
+            "StartEnd",
+            "Home"
+        ]
+    },
+    "EndZhengJi-1": {
+        "post_wait_freezes": 300,
+        "next": [
+            "StartZhengJi-1",
+            "EndZhengJi-2"
+        ],
+        "interrupt": [
+            "NoCompletedQueue",
+            "WuZi",
+            "Repeat",
+            "Yes",
+            "SkipZhengJi",
+            "Open",
+            "AllYes",
+            "GoZhengJi"
+        ],
+        "timeout": 2000,
+        "on_error": [
+            "Home"
+        ]
+    },
+    "EndZhengJi-2": {
+        "post_wait_freezes": 300,
+        "recognition": "TemplateMatch",
+        "template": "EndZhengJi.png",
+        "threshold": 0.95,
+        "roi": [
+            847,
+            52,
+            433,
+            668
+        ],
+        "action": "StopTask"
+    },
+    "GoZhengJi": {
+        "recognition": "OCR",
+        "expected": "器者征集",
+        "roi": [
+            847,
+            52,
+            433,
+            668
+        ],
+        "action": "Click",
+        "target": true
+    },
+    "Open": {
+        "recognition": "OCR",
+        "expected": "长按开启",
+        "roi": [
+            475,
+            541,
+            354,
+            148
+        ],
+        "action": "Swipe",
+        "begin": [
+            310,
+            505,
+            20,
+            21
+        ],
+        "end": [
+            310,
+            505,
+            700,
+            21
+        ],
+        "duration": 5000
+    },
+    "SkipZhengJi": {
+        "post_wait_freezes": 300,
+        "recognition": "TemplateMatch",
+        "template": "Skip.png",
+        "roi": [
+            1101,
+            0,
+            179,
+            101
+        ],
+        "action": "Click",
+        "target": true
+    },
+    "Repeat": {
+        "recognition": "OCR",
+        "expected": "重复",
+        "action": "Click",
+        "target": true
+    },
+    "YesZhengJi": {
+        "recognition": "TemplateMatch",
+        "template": "YesZhengJi.png",
+        "roi": [
+            391,
+            551,
+            506,
+            169
+        ],
+        "action": "Click",
+        "target": true
+    },
+    "NoCompletedQueue": {
+        "recognition": "OCR",
+        "expected": "当前没有已经完成的征集队列",
+        "next": "Home",
+        "timeout": 500,
+        "doc": "当前没有已经完成的征集队列"
+    },
+    "StartZhengJi": {
+        "post_wait_freezes": 300,
+        "recognition": "TemplateMatch",
+        "template": "StartZhengJi.png",
+        "threshold": 0.95,
+        "roi": [
+            934,
+            497,
+            346,
+            223
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "ZhengJiAddEnd"
+        ],
+        "interrupt": [
+            "ZhengJiAdd",
+            "Add"
+        ]
+    },
+    "StartZhengJi-1": {
+        "post_wait_freezes": 300,
+        "recognition": "TemplateMatch",
+        "template": "StartZhengJi.png",
+        "threshold": 0.95,
+        "roi": [
+            934,
+            497,
+            346,
+            223
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "ZhengJiAddEnd"
+        ],
+        "interrupt": [
+            "ZhengJiAdd",
+            "Add"
+        ]
+    },
+    "ZhengJiAdd": {
+        "recognition": "OCR",
+        "roi": [
+            382,
+            212,
+            515,
+            284
+        ],
+        "expected": "当前最多只能征集",
+        "next": "Yes",
+        "timeout": 500
+    },
+    "ZhengJiAddEnd": {
+        "recognition": "OCR",
+        "expected": "全部确认",
+        "next": [
+            "Home"
+        ],
+        "roi": [
+            768,
+            563,
+            516,
+            171
+        ],
+        "timeout": 5000
+    }
+}

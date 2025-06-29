@@ -1,0 +1,84 @@
+{
+    "PaiQian": {
+        "next": [
+            "GoPaiQian"
+        ],
+        "interrupt": []
+    },
+    "GoPaiQian": {
+        "recognition": "OCR",
+        "expected": "派遣公司",
+        "roi": [
+            847,
+            52,
+            433,
+            668
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "GanYing"
+        ]
+    },
+    "GanYing": {
+        "recognition": "OCR",
+        "expected": [
+            "感应",
+            "暂时没有获取感应"
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "GanYingAdd"
+        ],
+        "doc": "获取感应"
+    },
+    "GanYingAdd": {
+        "recognition": "OCR",
+        "expected": "感应增加",
+        "roi": [
+            304,
+            34,
+            649,
+            190
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "ZiYuan"
+        ]
+    },
+    "ZiYuan": {
+        "recognition": "OCR",
+        "expected": "资源",
+        "roi": [
+            918,
+            573,
+            362,
+            147
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "PaiQian-WuZi"
+        ],
+        "doc": "获取资源"
+    },
+    "PaiQian-WuZi": {
+        "recognition": "OCR",
+        "expected": "获得物资",
+        "action": "Click",
+        "target": true,
+        "next": [
+            "PaiQian-Back"
+        ]
+    },
+    "PaiQian-Back": {
+        "next": [
+            "StartEnd"
+        ],
+        "interrupt": [
+            "Back"
+        ]
+    }
+}

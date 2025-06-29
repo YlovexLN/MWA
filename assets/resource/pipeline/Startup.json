@@ -1,0 +1,127 @@
+{
+    "StartUp": {
+        "post_wait_freezes": 300,
+        "next": [
+            "Sign",
+            "StartWHMX",
+            "StartEnd"
+        ],
+        "interrupt": [
+            "GoShopRed",
+            "Info",
+            "WuZi",
+            "Login",
+            "Bulletin",
+            "GameUpdate",
+            "StartGame"
+        ]
+    },
+    "StartWHMX": {
+        "post_wait_freezes": 300,
+        "next": [
+            "Sign"
+        ],
+        "interrupt": [
+            "GoShopRed",
+            "Info",
+            "WuZi",
+            "Login",
+            "Bulletin",
+            "GameUpdate",
+            "StartGame"
+        ]
+    },
+    "StartGame": {
+        "action": "StartApp",
+        "package": "com.cipaishe.wuhua.bilibili"
+    },
+    "StartEnd": {
+        "doc": "判定是否已经在大厅",
+        "post_wait_freezes": 500,
+        "recognition": "TemplateMatch",
+        "template": "StartEnd.png",
+        "threshold": 0.95,
+        "roi": [
+            847,
+            52,
+            433,
+            668
+        ],
+        "next": [
+            "Bulletin",
+            "Sign"
+        ],
+        "timeout": 1000,
+        "on_error": "Lobby"
+    },
+    "GameUpdate": {
+        "recognition": "TemplateMatch",
+        "template": "GameUpdate.png",
+        "roi": [
+            381,
+            213,
+            520,
+            284
+        ],
+        "action": "Click",
+        "target": true
+    },
+    "Bulletin": {
+        "recognition": "TemplateMatch",
+        "template": "bulletin.png",
+        "action": "Click",
+        "target": true
+    },
+    "Login": {
+        "recognition": "OCR",
+        "expected": "我已仔细阅读并同意",
+        "roi": [
+            439,
+            555,
+            387,
+            78
+        ],
+        "action": "Click",
+        "target": [
+            399,
+            389,
+            481,
+            219
+        ]
+    },
+    "Info": {
+        "recognition": "TemplateMatch",
+        "template": "info.png",
+        "action": "Click",
+        "target": true
+    },
+    "Sign": {
+        "recognition": "TemplateMatch",
+        "template": "sign.png",
+        "action": "Click",
+        "threshold": 0.95,
+        "target": true,
+        "next": [
+            "StartEnd"
+        ]
+    },
+    "GoShopRed": {
+        "recognition": "TemplateMatch",
+        "template": "GoShopRed.png",
+        "action": "Click",
+        "threshold": 0.95,
+        "target": true
+    },
+    "Lobby": {
+        "recognition": "TemplateMatch",
+        "template": "StartEnd.png",
+        "threshold": 0.95,
+        "roi": [
+            847,
+            52,
+            433,
+            668
+        ],
+        "action": "StopTask"
+    }
+}
