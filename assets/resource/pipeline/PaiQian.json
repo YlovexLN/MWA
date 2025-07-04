@@ -21,34 +21,44 @@
         ]
     },
     "GanYing": {
+        "doc": "获取感应",
+        "pre_wait_freezes": 300,
         "recognition": "OCR",
         "expected": [
-            "感应",
-            "暂时没有获取感应"
+            "感应"
+        ],
+        "roi": [
+            944,
+            600,
+            336,
+            119
         ],
         "action": "Click",
         "target": true,
         "next": [
             "GanYingAdd"
-        ],
-        "doc": "获取感应"
+        ]
     },
     "GanYingAdd": {
+        "pre_wait_freezes": 300,
         "recognition": "OCR",
-        "expected": "感应增加",
-        "roi": [
-            304,
-            34,
-            649,
-            190
+        "expected": [
+            "感应增加",
+            "暂时没有获取感应"
         ],
-        "action": "Click",
-        "target": true,
+        "roi": [
+            305,
+            32,
+            707,
+            362
+        ],
         "next": [
             "ZiYuan"
         ]
     },
     "ZiYuan": {
+        "pre_wait_freezes": 300,
+        "doc": "获取资源",
         "recognition": "OCR",
         "expected": "资源",
         "roi": [
@@ -60,9 +70,11 @@
         "action": "Click",
         "target": true,
         "next": [
-            "PaiQian-WuZi"
+            "DunShe"
         ],
-        "doc": "获取资源"
+        "interrupt": [
+            "PaiQian-WuZi"
+        ]
     },
     "PaiQian-WuZi": {
         "recognition": "OCR",
@@ -72,6 +84,7 @@
     },
     "DunShe": {
         "doc": "顿舍",
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "expected": "顿舍",
         "roi": [
@@ -87,6 +100,7 @@
         ]
     },
     "DunShe_LinQu": {
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "expected": "领取",
         "roi": [
@@ -103,6 +117,7 @@
     },
     "DunShe_Gest": {
         "doc": "顿舍访客",
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "expected": "访客",
         "roi": [
@@ -119,6 +134,7 @@
     },
     "DunShe_Gest_Close": {
         "doc": "顿舍访客关闭",
+        "post_wait_freezes": 300,
         "recognition": "TemplateMatch",
         "template": "PaiQian/DunShe_Gest_Close.png",
         "roi": [
@@ -130,8 +146,25 @@
         "action": "Click",
         "target": true,
         "next": [
+            "PaiQian-Back"
+        ],
+        "interrupt": [
             "Back"
         ]
+    },
+    "BoLanTin": {
+        "doc": "博览厅",
+        "recognition": "OCR",
+        "expected": "博览",
+        "roi": [
+            827,
+            137,
+            197,
+            211
+        ],
+        "action": "Click",
+        "target": true,
+        "next": []
     },
     "PaiQian-Back": {
         "next": [
