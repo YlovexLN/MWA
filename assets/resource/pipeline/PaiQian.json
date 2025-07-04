@@ -68,9 +68,69 @@
         "recognition": "OCR",
         "expected": "获得物资",
         "action": "Click",
+        "target": true
+    },
+    "DunShe": {
+        "doc": "顿舍",
+        "recognition": "OCR",
+        "expected": "顿舍",
+        "roi": [
+            442,
+            480,
+            141,
+            145
+        ],
+        "action": "Click",
         "target": true,
         "next": [
-            "PaiQian-Back"
+            "DunShe_LinQu"
+        ]
+    },
+    "DunShe_LinQu": {
+        "recognition": "OCR",
+        "expected": "领取",
+        "roi": [
+            0,
+            618,
+            394,
+            102
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "DunShe_Gest"
+        ]
+    },
+    "DunShe_Gest": {
+        "doc": "顿舍访客",
+        "recognition": "OCR",
+        "expected": "访客",
+        "roi": [
+            0,
+            618,
+            394,
+            102
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "DunShe_Gest_Close"
+        ]
+    },
+    "DunShe_Gest_Close": {
+        "doc": "顿舍访客关闭",
+        "recognition": "TemplateMatch",
+        "template": "PaiQian/DunShe_Gest_Close.png",
+        "roi": [
+            951,
+            73,
+            113,
+            119
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "Back"
         ]
     },
     "PaiQian-Back": {
