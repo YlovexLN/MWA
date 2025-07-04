@@ -1,7 +1,8 @@
 {
     "Shop": {
         "next": [
-            "GoShop"
+            "GoShop",
+            "GoShop_No"
         ],
         "interrupt": [
             "Gift",
@@ -12,18 +13,45 @@
         ]
     },
     "GoShop": {
-        "recognition": "OCR",
-        "expected": "商亭",
+        "recognition": "ColorMatch",
+        "lower": [
+            167,
+            47,
+            38
+        ],
+        "upper": [
+            195,
+            124,
+            120
+        ],
         "roi": [
-            847,
-            52,
-            433,
-            668
+            861,
+            635,
+            132,
+            73
         ],
         "action": "Click",
-        "target": true,
+        "target_offset": [
+            -10,
+            10,
+            0,
+            0
+        ],
         "next": [
             "Gift"
+        ]
+    },
+    "GoShop_No": {
+        "recognition": "TemplateMatch",
+        "template": "Shop/GoShop_No.png",
+        "roi": [
+            861,
+            634,
+            134,
+            77
+        ],
+        "next": [
+            "Lobby"
         ]
     },
     "Gift": {
