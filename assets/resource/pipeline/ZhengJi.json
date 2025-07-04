@@ -1,23 +1,8 @@
 {
     "ZhengJi": {
-        "post_wait_freezes": 300,
         "next": [
-            "StartZhengJi"
-        ],
-        "interrupt": [
-            "EndZhengJi-1"
-        ],
-        "timeout": 2000,
-        "on_error": [
-            "StartEnd",
-            "Home"
-        ]
-    },
-    "EndZhengJi-1": {
-        "post_wait_freezes": 300,
-        "next": [
-            "StartZhengJi-1",
-            "EndZhengJi-2"
+            "GoZhengJi",
+            "EndZhengJi"
         ],
         "interrupt": [
             "NoCompletedQueue",
@@ -26,15 +11,15 @@
             "Yes",
             "SkipZhengJi",
             "Open",
-            "AllYes",
-            "GoZhengJi"
+            "AllYes"
         ],
         "timeout": 2000,
         "on_error": [
+            "StartEnd",
             "Home"
         ]
     },
-    "EndZhengJi-2": {
+    "EndZhengJi": {
         "post_wait_freezes": 300,
         "recognition": "TemplateMatch",
         "template": "EndZhengJi.png",
@@ -48,18 +33,37 @@
         "action": "StopTask"
     },
     "GoZhengJi": {
-        "recognition": "OCR",
-        "expected": "器者征集",
+        "recognition": "ColorMatch",
+        "lower": [
+            167,
+            47,
+            38
+        ],
+        "upper": [
+            195,
+            124,
+            120
+        ],
         "roi": [
-            847,
-            52,
-            433,
-            668
+            907,
+            549,
+            170,
+            44
         ],
         "action": "Click",
-        "target": true
+        "target_offset": [
+            -10,
+            10,
+            0,
+            0
+        ],
+        "next": [
+            "StartZhengJi",
+            "ZhengJiAddEnd"
+        ]
     },
     "Open": {
+        "pre_wait_freezes": 300,
         "recognition": "OCR",
         "expected": "长按开启",
         "roi": [
@@ -84,7 +88,7 @@
         "duration": 5000
     },
     "SkipZhengJi": {
-        "post_wait_freezes": 300,
+        "pre_wait_freezes": 300,
         "recognition": "TemplateMatch",
         "template": "Skip.png",
         "roi": [
@@ -111,55 +115,46 @@
             506,
             169
         ],
-        "action": "Click",
-        "target": true
-    },
-    "NoCompletedQueue": {
-        "recognition": "OCR",
-        "expected": "当前没有已经完成的征集队列",
-        "next": "Home",
-        "timeout": 500,
-        "doc": "当前没有已经完成的征集队列"
+        "action": "Click"
     },
     "StartZhengJi": {
-        "post_wait_freezes": 300,
-        "recognition": "TemplateMatch",
-        "template": "StartZhengJi.png",
-        "threshold": 0.95,
+        "pre_wait_freezes": 300,
+        "recognition": "ColorMatch",
+        "lower": [
+            167,
+            47,
+            38
+        ],
+        "upper": [
+            233,
+            104,
+            104
+        ],
         "roi": [
-            934,
-            497,
-            346,
-            223
+            984,
+            613,
+            264,
+            64
         ],
         "action": "Click",
-        "target": true,
+        "target_offset": [
+            -10,
+            10,
+            0,
+            0
+        ],
         "next": [
+            "NoCompletedQueue",
             "ZhengJiAddEnd"
         ],
         "interrupt": [
+            "StartZhengJi",
+            "Open",
+            "Repeat",
+            "SkipZhengJi",
+            "YesZhengJi",
             "ZhengJiAdd",
-            "Add"
-        ]
-    },
-    "StartZhengJi-1": {
-        "post_wait_freezes": 300,
-        "recognition": "TemplateMatch",
-        "template": "StartZhengJi.png",
-        "threshold": 0.95,
-        "roi": [
-            934,
-            497,
-            346,
-            223
-        ],
-        "action": "Click",
-        "target": true,
-        "next": [
-            "ZhengJiAddEnd"
-        ],
-        "interrupt": [
-            "ZhengJiAdd",
+            "WuZi",
             "Add"
         ]
     },
@@ -178,15 +173,32 @@
     "ZhengJiAddEnd": {
         "recognition": "OCR",
         "expected": "全部确认",
-        "next": [
-            "Home"
-        ],
         "roi": [
             768,
             563,
             516,
             171
         ],
-        "timeout": 5000
+        "action": "Click",
+        "next": [
+            "NoCompletedQueue"
+        ],
+        "interrupt": [
+            "Open",
+            "Repeat",
+            "SkipZhengJi",
+            "YesZhengJi",
+            "ZhengJiAdd",
+            "WuZi",
+            "Add",
+            "ZhengJiAddEnd"
+        ]
+    },
+    "NoCompletedQueue": {
+        "doc": "当前没有已经完成的征集队列",
+        "recognition": "OCR",
+        "expected": "当前没有已经完成的征集队列",
+        "next": "Home",
+        "timeout": 500
     }
 }
