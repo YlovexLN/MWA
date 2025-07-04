@@ -1,6 +1,5 @@
 {
     "StartUp": {
-        "post_wait_freezes": 300,
         "next": [
             "Sign",
             "StartWHMX",
@@ -17,7 +16,6 @@
         ]
     },
     "StartWHMX": {
-        "post_wait_freezes": 300,
         "next": [
             "Sign",
             "StartEnd"
@@ -38,7 +36,7 @@
     },
     "StartEnd": {
         "doc": "判定是否已经在大厅",
-        "post_wait_freezes": 500,
+        "post_wait_freezes": 300,
         "recognition": "TemplateMatch",
         "template": "StartEnd.png",
         "threshold": 0.95,
@@ -84,10 +82,10 @@
         ],
         "action": "Click",
         "target": [
-            399,
-            389,
-            481,
-            219
+            494,
+            571,
+            294,
+            37
         ]
     },
     "Info": {
@@ -114,7 +112,7 @@
         "target": true
     },
     "Lobby": {
-        "post_wait_freezes": 600,
+        "pre_wait_freezes": 300,
         "recognition": "TemplateMatch",
         "template": "StartEnd.png",
         "threshold": 0.95,
