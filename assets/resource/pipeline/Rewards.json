@@ -182,7 +182,7 @@
     },
     "RewardsEnd": {
         "next": [
-            "StartEnd"
+            "Lobby"
         ],
         "interrupt": [
             "Home"
