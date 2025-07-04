@@ -52,8 +52,15 @@
         "target": true
     },
     "WuZi": {
+        "post_wait_freezes": 300,
         "recognition": "OCR",
         "expected": "获得物资",
+        "roi": [
+            993,
+            117,
+            101,
+            462
+        ],
         "action": "Click",
         "target": true
     },
