@@ -1,25 +1,59 @@
 {
     "Mail": {
         "next": [
+            "GoMail_Yes",
+            "GoMail_No"
+        ],
+        "interrupt": [
+            "WuZi"
+        ]
+    },
+    "GoMail_Yes": {
+        "recognition": "ColorMatch",
+        "lower": [
+            167,
+            47,
+            38
+        ],
+        "upper": [
+            195,
+            124,
+            120
+        ],
+        "roi": [
+            49,
+            537,
+            23,
+            24
+        ],
+        "action": "Click",
+        "target_offset": [
+            -10,
+            10,
+            0,
+            0
+        ],
+        "next": [
             "MailEnd"
         ],
         "interrupt": [
             "WuZi",
             "AllClaim",
-            "GoMail"
+            "GoMail_Yes"
         ]
     },
-    "GoMail": {
-        "recognition": "OCR",
-        "expected": "邮件",
+    "GoMail_No": {
+        "recognition": "TemplateMatch",
+        "template": "GoMail_No.png",
         "roi": [
             0,
-            366,
-            238,
-            329
+            537,
+            73,
+            72
         ],
-        "action": "Click",
-        "target": true
+        "next": [
+            "Lobby"
+        ]
     },
     "AllClaim": {
         "recognition": "OCR",
