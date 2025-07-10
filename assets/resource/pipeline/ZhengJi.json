@@ -198,7 +198,15 @@
         "doc": "当前没有已经完成的征集队列",
         "recognition": "OCR",
         "expected": "当前没有已经完成的征集队列",
-        "next": "StartEnd",
+        "next": "ZhengJiEnd",
         "timeout": 500
+    },
+    "ZhengJiEnd": {
+        "next": [
+            "Lobby"
+        ],
+        "interrupt": [
+            "Home"
+        ]
     }
 }
