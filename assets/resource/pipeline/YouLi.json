@@ -4,7 +4,9 @@
             "GoYouLi_Yes",
             "GoYouLi_No"
         ],
-        "interrupt": []
+        "interrupt": [
+            "To"
+        ]
     },
     "GoYouLi_Yes": {
         "recognition": "ColorMatch",
