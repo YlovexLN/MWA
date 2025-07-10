@@ -103,13 +103,28 @@
             0
         ],
         "next": [
-            "Reward_Claim",
-            "Weekly_Yes",
-            "Weekly_No"
+            "Daily_WuZi"
         ],
         "interrupt": [
-            "WuZi",
+            "Reward_Claim",
             "Daily_Yes"
+        ]
+    },
+    "Daily_WuZi": {
+        "post_wait_freezes": 300,
+        "recognition": "OCR",
+        "expected": "获得物资",
+        "roi": [
+            993,
+            117,
+            101,
+            462
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "Weekly_Yes",
+            "Weekly_No"
         ]
     },
     "Daily_No": {
@@ -155,12 +170,27 @@
             0
         ],
         "next": [
-            "Reward_Claim",
-            "RewardsEnd"
+            "Weekly_WuZi"
         ],
         "interrupt": [
-            "WuZi",
+            "Reward_Claim",
             "Weekly_Yes"
+        ]
+    },
+    "Weekly_WuZi": {
+        "post_wait_freezes": 300,
+        "recognition": "OCR",
+        "expected": "获得物资",
+        "roi": [
+            993,
+            117,
+            101,
+            462
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "RewardsEnd"
         ]
     },
     "Weekly_No": {
