@@ -36,21 +36,39 @@
         "action": "Click",
         "target": true,
         "next": [
-            "GanYingAdd"
+            "GanYingAdd_Yes",
+            "GanYingAdd_No"
         ]
     },
-    "GanYingAdd": {
+    "GanYingAdd_Yes": {
         "pre_wait_freezes": 300,
         "recognition": "OCR",
         "expected": [
-            "感应增加",
+            "感应增加"
+        ],
+        "roi": [
+            479,
+            72,
+            281,
+            54
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "ZiYuan"
+        ]
+    },
+    "GanYingAdd_No": {
+        "pre_wait_freezes": 300,
+        "recognition": "OCR",
+        "expected": [
             "暂时没有获取感应"
         ],
         "roi": [
-            305,
-            32,
-            707,
-            362
+            445,
+            290,
+            390,
+            60
         ],
         "next": [
             "ZiYuan"
@@ -70,21 +88,47 @@
         "action": "Click",
         "target": true,
         "next": [
-            "DunShe"
+            "PaiQian-WuZi",
+            "ZiYuan_No"
+        ]
+    },
+    "ZiYuan_No": {
+        "pre_wait_freezes": 300,
+        "doc": "暂时没有资源可收取",
+        "recognition": "OCR",
+        "expected": "暂时没有资源可收取",
+        "roi": [
+            445,
+            290,
+            390,
+            58
         ],
-        "interrupt": [
-            "PaiQian-WuZi"
+        "action": "Click",
+        "target": true,
+        "next": [
+            "DunShe"
         ]
     },
     "PaiQian-WuZi": {
         "recognition": "OCR",
         "expected": "获得物资",
         "action": "Click",
-        "target": true
+        "target": [
+            1163,
+            270,
+            37,
+            184
+        ],
+        "next": [
+            "DunShe"
+        ],
+        "interrupt": [
+            "PaiQian-WuZi"
+        ]
     },
     "DunShe": {
         "doc": "顿舍",
-        "post_wait_freezes": 300,
+        "pre_wait_freezes": 300,
         "recognition": "OCR",
         "expected": "顿舍",
         "roi": [
@@ -113,6 +157,10 @@
         "target": true,
         "next": [
             "DunShe_Gest"
+        ],
+        "interrupt": [
+            "WuZi",
+            "DunShe_LinQu"
         ]
     },
     "DunShe_Gest": {
@@ -130,6 +178,9 @@
         "target": true,
         "next": [
             "DunShe_Gest_Close"
+        ],
+        "interrupt": [
+            "WuZi"
         ]
     },
     "DunShe_Gest_Close": {
