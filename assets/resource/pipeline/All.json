@@ -76,5 +76,24 @@
         "template": "Add.png",
         "action": "Click",
         "target": true
+    },
+    "To": {
+        "recognition": "OCR",
+        "expected": "前往",
+        "roi": [
+            799,
+            614,
+            80,
+            80
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "Lobby"
+        ],
+        "interrupt": [
+            "Home",
+            "Back"
+        ]
     }
 }
