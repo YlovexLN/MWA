@@ -118,9 +118,19 @@
         "recognition": "OCR",
         "expected": "获得物资",
         "action": "Click",
-        "target": true,
+        "target": [
+            1164,
+            268,
+            32,
+            185
+        ],
         "next": [
-            "StartEnd"
+            "ShopEnd"
+        ]
+    },
+    "ShopEnd": {
+        "next": [
+            "Lobby"
         ],
         "interrupt": [
             "Home"
