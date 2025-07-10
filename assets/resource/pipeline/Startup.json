@@ -6,6 +6,7 @@
             "StartEnd"
         ],
         "interrupt": [
+            "To",
             "GoShopRed",
             "Info",
             "WuZi",
