@@ -191,7 +191,8 @@
             "ZhengJiAdd",
             "WuZi",
             "Add",
-            "ZhengJiAddEnd"
+            "ZhengJiAddEnd",
+            "StartZhengJi"
         ]
     },
     "NoCompletedQueue": {
