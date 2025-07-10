@@ -58,8 +58,8 @@
             0
         ],
         "next": [
-            "StartZhengJi",
-            "ZhengJiAddEnd"
+            "ZhengJiAddEnd",
+            "StartZhengJi"
         ]
     },
     "Open": {
@@ -148,7 +148,6 @@
             "ZhengJiAddEnd"
         ],
         "interrupt": [
-            "StartZhengJi",
             "Open",
             "Repeat",
             "SkipZhengJi",
@@ -199,7 +198,7 @@
         "doc": "当前没有已经完成的征集队列",
         "recognition": "OCR",
         "expected": "当前没有已经完成的征集队列",
-        "next": "Home",
+        "next": "StartEnd",
         "timeout": 500
     }
 }
