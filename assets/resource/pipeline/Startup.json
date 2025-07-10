@@ -38,7 +38,7 @@
         "doc": "判定是否已经在大厅",
         "post_wait_freezes": 300,
         "recognition": "TemplateMatch",
-        "template": "StartEnd.png",
+        "template": "Startup/StartEnd.png",
         "threshold": 0.95,
         "roi": [
             847,
@@ -55,7 +55,7 @@
     },
     "GameUpdate": {
         "recognition": "TemplateMatch",
-        "template": "GameUpdate.png",
+        "template": "Startup/GameUpdate.png",
         "roi": [
             381,
             213,
@@ -67,7 +67,13 @@
     },
     "Bulletin": {
         "recognition": "TemplateMatch",
-        "template": "bulletin.png",
+        "template": "Startup/bulletin.png",
+        "roi": [
+            982,
+            0,
+            298,
+            147
+        ],
         "action": "Click",
         "target": true
     },
@@ -89,14 +95,16 @@
         ]
     },
     "Info": {
+        "post_wait_freezes": 300,
         "recognition": "TemplateMatch",
-        "template": "info.png",
+        "template": "Startup/info.png",
         "action": "Click",
         "target": true
     },
     "Sign": {
+        "post_wait_freezes": 300,
         "recognition": "TemplateMatch",
-        "template": "sign.png",
+        "template": "Startup/sign.png",
         "action": "Click",
         "threshold": 0.95,
         "target": true,
@@ -105,16 +113,30 @@
         ]
     },
     "GoShopRed": {
+        "post_wait_freezes": 300,
         "recognition": "TemplateMatch",
-        "template": "GoShopRed.png",
+        "template": "Startup/GoShopRed.png",
         "action": "Click",
-        "threshold": 0.95,
+        "roi": [
+            1018,
+            1,
+            262,
+            195
+        ],
+        "target": true
+    },
+    "Power": {
+        "doc": "入职助力",
+        "post_wait_freezes": 300,
+        "recognition": "TemplateMatch",
+        "template": "Startup/Power.png",
+        "action": "Click",
         "target": true
     },
     "Lobby": {
         "pre_wait_freezes": 300,
         "recognition": "TemplateMatch",
-        "template": "StartEnd.png",
+        "template": "Startup/StartEnd.png",
         "threshold": 0.95,
         "roi": [
             847,
