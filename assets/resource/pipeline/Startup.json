@@ -13,6 +13,7 @@
             "WuZi",
             "Login",
             "LoginSkip",
+            "Regression",
             "Bulletin",
             "GameUpdate",
             "StartGame"
@@ -30,6 +31,7 @@
             "WuZi",
             "Login",
             "LoginSkip",
+            "Regression",
             "Bulletin",
             "GameUpdate",
             "StartGame"
@@ -41,15 +43,15 @@
     },
     "StartEnd": {
         "doc": "判定是否已经在大厅",
-        "pre_wait_freezes": 300,
-        "recognition": "TemplateMatch",
-        "template": "Startup/StartEnd.png",
+        "pre_wait_freezes": 800,
+        "recognition": "OCR",
+        "expected": "招集",
         "threshold": 0.95,
         "roi": [
-            847,
-            52,
-            433,
-            668
+            932,
+            413,
+            122,
+            58
         ],
         "next": [
             "Bulletin",
@@ -148,6 +150,20 @@
         "post_wait_freezes": 300,
         "recognition": "TemplateMatch",
         "template": "Startup/Power.png",
+        "action": "Click",
+        "target": true
+    },
+    "Regression": {
+        "doc": "回归奖励",
+        "post_wait_freezes": 300,
+        "recognition": "OCR",
+        "expected": "领取",
+        "roi": [
+            474,
+            516,
+            305,
+            78
+        ],
         "action": "Click",
         "target": true
     },
