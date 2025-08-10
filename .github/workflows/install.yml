@@ -125,7 +125,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: M9A-win-${{ matrix.arch }}
+          name: MWA-win-${{ matrix.arch }}
           path: "install"
 
   linux:
@@ -184,7 +184,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: M9A-linux-${{ matrix.arch }}
+          name: MWA-linux-${{ matrix.arch }}
           path: "install"
 
   macos:
@@ -254,7 +254,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: M9A-macos-${{ matrix.arch }}
+          name: MWA-macos-${{ matrix.arch }}
           path: "install"
 
   changelog:
