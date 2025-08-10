@@ -1,5 +1,6 @@
 {
     "StartUp": {
+        "post_wait_freezes": 300,
         "next": [
             "Sign",
             "StartWHMX",
@@ -11,12 +12,14 @@
             "Info",
             "WuZi",
             "Login",
+            "LoginSkip",
             "Bulletin",
             "GameUpdate",
             "StartGame"
         ]
     },
     "StartWHMX": {
+        "post_wait_freezes": 300,
         "next": [
             "Sign",
             "StartEnd"
@@ -26,6 +29,7 @@
             "Info",
             "WuZi",
             "Login",
+            "LoginSkip",
             "Bulletin",
             "GameUpdate",
             "StartGame"
@@ -37,7 +41,7 @@
     },
     "StartEnd": {
         "doc": "判定是否已经在大厅",
-        "post_wait_freezes": 300,
+        "pre_wait_freezes": 300,
         "recognition": "TemplateMatch",
         "template": "Startup/StartEnd.png",
         "threshold": 0.95,
@@ -79,8 +83,9 @@
         "target": true
     },
     "Login": {
+        "post_wait_freezes": 300,
         "recognition": "OCR",
-        "expected": "我已仔细阅读并同意",
+        "expected": "已仔细阅读并同意",
         "roi": [
             439,
             555,
@@ -89,10 +94,10 @@
         ],
         "action": "Click",
         "target": [
-            494,
-            571,
-            294,
-            37
+            452,
+            416,
+            384,
+            104
         ]
     },
     "Info": {
@@ -112,6 +117,18 @@
         "next": [
             "StartEnd"
         ]
+    },
+    "LoginSkip": {
+        "recognition": "TemplateMatch",
+        "template": "Startup/LoginSkip.png",
+        "roi": [
+            1199,
+            19,
+            41,
+            39
+        ],
+        "action": "Click",
+        "target": true
     },
     "GoShopRed": {
         "post_wait_freezes": 300,
