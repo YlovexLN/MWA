@@ -118,6 +118,18 @@
         "target": true,
         "next": [
             "StartEnd"
+        ],
+        "interrupt": [
+            "GoShopRed",
+            "Info",
+            "WuZi",
+            "Login",
+            "LoginSkip",
+            "Regression",
+            "Bulletin",
+            "GameUpdate",
+            "Sign",
+            "StartGame"
         ]
     },
     "LoginSkip": {
