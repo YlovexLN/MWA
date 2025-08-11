@@ -153,7 +153,16 @@
     },
     "YouLiLinQuBenZhouWuZi": {
         "recognition": "OCR",
-        "expected": "获得物资",
+        "expected": [
+            "获得",
+            "物资"
+        ],
+        "roi": [
+            983,
+            138,
+            123,
+            439
+        ],
         "action": "Click",
         "target": true,
         "next": [
@@ -202,7 +211,16 @@
     },
     "YouLiRewardsTiaoZhanWuZi": {
         "recognition": "OCR",
-        "expected": "获得物资",
+        "expected": [
+            "获得",
+            "物资"
+        ],
+        "roi": [
+            983,
+            138,
+            123,
+            439
+        ],
         "action": "Click",
         "target": true,
         "next": [
@@ -251,7 +269,16 @@
     },
     "YouLiJianLiLinQuWuZi": {
         "recognition": "OCR",
-        "expected": "获得物资",
+        "expected": [
+            "获得",
+            "物资"
+        ],
+        "roi": [
+            983,
+            138,
+            123,
+            439
+        ],
         "action": "Click",
         "target": true,
         "next": [
