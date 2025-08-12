@@ -124,7 +124,12 @@
             462
         ],
         "action": "Click",
-        "target": true,
+        "target": [
+            1163,
+            270,
+            37,
+            184
+        ],
         "next": [
             "Weekly_Yes",
             "Weekly_No"
@@ -197,7 +202,12 @@
             462
         ],
         "action": "Click",
-        "target": true,
+        "target": [
+            1163,
+            270,
+            37,
+            184
+        ],
         "next": [
             "RewardsEnd"
         ],
