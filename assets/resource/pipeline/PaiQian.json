@@ -141,6 +141,10 @@
         "target": true,
         "next": [
             "DunShe_LinQu"
+        ],
+        "timeout": 2000,
+        "on_error": [
+            "DunShe_Gest"
         ]
     },
     "DunShe_LinQu": {
@@ -162,7 +166,7 @@
             "WuZi",
             "DunShe_LinQu"
         ],
-        "timeout": 1000,
+        "timeout": 2000,
         "on_error": [
             "PaiQian-Back"
         ]
