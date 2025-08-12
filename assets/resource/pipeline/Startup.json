@@ -1,6 +1,6 @@
 {
     "StartUp": {
-        "post_wait_freezes": 300,
+        "post_wait_freezes": 100,
         "next": [
             "Sign",
             "StartWHMX",
@@ -20,7 +20,7 @@
         ]
     },
     "StartWHMX": {
-        "post_wait_freezes": 300,
+        "post_wait_freezes": 100,
         "next": [
             "Sign",
             "StartEnd"
