@@ -158,13 +158,18 @@
             "物资"
         ],
         "roi": [
-            983,
-            138,
-            123,
-            439
+            993,
+            117,
+            101,
+            462
         ],
         "action": "Click",
-        "target": true,
+        "target": [
+            1163,
+            270,
+            37,
+            184
+        ],
         "next": [
             "YouLiRewardsTiaoZhan_Yes",
             "YouLiRewardsTiaoZhan_No"
@@ -216,13 +221,18 @@
             "物资"
         ],
         "roi": [
-            983,
-            138,
-            123,
-            439
+            993,
+            117,
+            101,
+            462
         ],
         "action": "Click",
-        "target": true,
+        "target": [
+            1163,
+            270,
+            37,
+            184
+        ],
         "next": [
             "YouLiJianLi_Yes",
             "YouLiJianLi_No"
@@ -274,13 +284,18 @@
             "物资"
         ],
         "roi": [
-            983,
-            138,
-            123,
-            439
+            993,
+            117,
+            101,
+            462
         ],
         "action": "Click",
-        "target": true,
+        "target": [
+            1163,
+            270,
+            37,
+            184
+        ],
         "next": [
             "YouLiEnd"
         ],
