@@ -111,7 +111,16 @@
     },
     "PaiQian-WuZi": {
         "recognition": "OCR",
-        "expected": "获得物资",
+        "expected": [
+            "获得",
+            "物资"
+        ],
+        "roi": [
+            993,
+            117,
+            101,
+            462
+        ],
         "action": "Click",
         "target": [
             1163,
