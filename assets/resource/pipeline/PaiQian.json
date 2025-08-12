@@ -161,6 +161,10 @@
         "interrupt": [
             "WuZi",
             "DunShe_LinQu"
+        ],
+        "timeout": 1000,
+        "on_error": [
+            "PaiQian-Back"
         ]
     },
     "DunShe_Gest": {
