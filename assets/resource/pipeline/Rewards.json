@@ -113,7 +113,10 @@
     "Daily_WuZi": {
         "post_wait_freezes": 300,
         "recognition": "OCR",
-        "expected": "获得物资",
+        "expected": [
+            "获得",
+            "物资"
+        ],
         "roi": [
             993,
             117,
@@ -125,6 +128,9 @@
         "next": [
             "Weekly_Yes",
             "Weekly_No"
+        ],
+        "interrupt": [
+            "Daily_WuZi"
         ]
     },
     "Daily_No": {
@@ -180,7 +186,10 @@
     "Weekly_WuZi": {
         "post_wait_freezes": 300,
         "recognition": "OCR",
-        "expected": "获得物资",
+        "expected": [
+            "获得",
+            "物资"
+        ],
         "roi": [
             993,
             117,
@@ -191,6 +200,9 @@
         "target": true,
         "next": [
             "RewardsEnd"
+        ],
+        "interrupt": [
+            "Weekly_WuZi"
         ]
     },
     "Weekly_No": {
