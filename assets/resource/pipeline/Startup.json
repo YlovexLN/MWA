@@ -87,7 +87,7 @@
     "Login": {
         "post_wait_freezes": 300,
         "recognition": "OCR",
-        "expected": "已仔细阅读并同意",
+        "expected": "已仔细阅读",
         "roi": [
             439,
             555,
@@ -95,11 +95,11 @@
             78
         ],
         "action": "Click",
-        "target": [
-            452,
-            416,
-            384,
-            104
+        "target_offset": [
+            -40,
+            -60,
+            40,
+            -200
         ]
     },
     "Info": {
