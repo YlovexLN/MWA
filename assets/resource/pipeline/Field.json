@@ -99,6 +99,9 @@
             270,
             37,
             184
+        ],
+        "next": [
+            "Field_Click"
         ]
     },
     "Field_Click": {
@@ -112,7 +115,9 @@
         ],
         "action": "Click",
         "target": true,
-        "next": []
+        "next": [
+            "Field_Click_Yes"
+        ]
     },
     "Field_Click_Yes": {
         "recognition": "OCR",
@@ -125,9 +130,19 @@
         ],
         "action": "Click",
         "target": true,
-        "next": []
+        "next": [
+            "Field_End"
+        ]
     },
-    "GoField_No": {},
+    "GoField_No": {
+        "next": [
+            "Lobby"
+        ],
+        "interrupt": [
+            "Home",
+            "Back"
+        ]
+    },
     "Field_End": {
         "recognition": "OCR",
         "expected": "统一召回",
