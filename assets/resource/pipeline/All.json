@@ -62,7 +62,12 @@
             462
         ],
         "action": "Click",
-        "target": true
+        "target": [
+            1163,
+            270,
+            37,
+            184
+        ]
     },
     "Yes": {
         "recognition": "TemplateMatch",
@@ -88,6 +93,41 @@
         ],
         "action": "Click",
         "target": true,
+        "next": [
+            "Lobby"
+        ],
+        "interrupt": [
+            "Home",
+            "Back"
+        ]
+    },
+    "GoDrills_Yes": {
+        "recognition": "ColorMatch",
+        "lower": [
+            167,
+            47,
+            38
+        ],
+        "upper": [
+            195,
+            124,
+            120
+        ],
+        "roi": [
+            904,
+            236,
+            178,
+            102
+        ],
+        "action": "Click",
+        "target_offset": [
+            -10,
+            10,
+            0,
+            0
+        ]
+    },
+    "GoDrills_No": {
         "next": [
             "Lobby"
         ],
