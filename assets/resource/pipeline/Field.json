@@ -1,0 +1,148 @@
+{
+    "Field": {
+        "next": [
+            "GoField_Yes",
+            "GoField_No"
+        ],
+        "interrupt": [
+            "GoDrills_Yes",
+            "GoDrills_No",
+            "Lobby"
+        ]
+    },
+    "GoField_Yes": {
+        "recognition": "ColorMatch",
+        "lower": [
+            167,
+            47,
+            38
+        ],
+        "upper": [
+            195,
+            124,
+            120
+        ],
+        "roi": [
+            456,
+            369,
+            132,
+            135
+        ],
+        "action": "Click",
+        "target_offset": [
+            -10,
+            10,
+            0,
+            0
+        ],
+        "next": [
+            "Field_Receive_1"
+        ]
+    },
+    "Field_Receive_1": {
+        "recognition": "ColorMatch",
+        "lower": [
+            167,
+            47,
+            38
+        ],
+        "upper": [
+            195,
+            124,
+            120
+        ],
+        "roi": [
+            11,
+            614,
+            257,
+            62
+        ],
+        "action": "Click",
+        "target_offset": [
+            -10,
+            10,
+            0,
+            0
+        ],
+        "next": [
+            "Field_Receive_2"
+        ]
+    },
+    "Field_Receive_2": {
+        "recognition": "OCR",
+        "expected": "领取",
+        "roi": [
+            521,
+            539,
+            242,
+            67
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "Field_WuZi"
+        ]
+    },
+    "Field_WuZi": {
+        "post_wait_freezes": 300,
+        "recognition": "OCR",
+        "expected": "获得物资",
+        "roi": [
+            993,
+            117,
+            101,
+            462
+        ],
+        "action": "Click",
+        "target": [
+            1163,
+            270,
+            37,
+            184
+        ]
+    },
+    "Field_Click": {
+        "recognition": "OCR",
+        "expected": "统一外勤",
+        "roi": [
+            11,
+            614,
+            257,
+            62
+        ],
+        "action": "Click",
+        "target": true,
+        "next": []
+    },
+    "Field_Click_Yes": {
+        "recognition": "OCR",
+        "expected": "确认",
+        "roi": [
+            696,
+            539,
+            237,
+            65
+        ],
+        "action": "Click",
+        "target": true,
+        "next": []
+    },
+    "GoField_No": {},
+    "Field_End": {
+        "recognition": "OCR",
+        "expected": "统一召回",
+        "roi": [
+            11,
+            614,
+            257,
+            62
+        ],
+        "next": [
+            "Lobby"
+        ],
+        "interrupt": [
+            "Home",
+            "Back"
+        ]
+    }
+}
