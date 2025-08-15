@@ -144,6 +144,7 @@
             0
         ],
         "next": [
+            "Lack_ZhengJi",
             "NoCompletedQueue",
             "ZhengJiAddEnd"
         ],
@@ -198,6 +199,25 @@
         "doc": "当前没有已经完成的征集队列",
         "recognition": "OCR",
         "expected": "当前没有已经完成的征集队列",
+        "roi": [
+            445,
+            290,
+            391,
+            60
+        ],
+        "next": "ZhengJiEnd",
+        "timeout": 500
+    },
+    "Lack_ZhengJi": {
+        "doc": "缺少征集令",
+        "recognition": "OCR",
+        "expected": "缺少道具",
+        "roi": [
+            445,
+            290,
+            391,
+            60
+        ],
         "next": "ZhengJiEnd",
         "timeout": 500
     },
