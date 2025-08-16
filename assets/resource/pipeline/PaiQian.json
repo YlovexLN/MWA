@@ -33,7 +33,7 @@
         "action": "Click",
         "target": true,
         "next": [
-            "PaiQian-Back"
+            "Lobby"
         ]
     },
     "GanYing": {
