@@ -30,8 +30,6 @@
             184,
             152
         ],
-        "action": "Click",
-        "target": true,
         "next": [
             "Lobby"
         ]
