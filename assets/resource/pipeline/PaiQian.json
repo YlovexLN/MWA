@@ -1,23 +1,39 @@
 {
     "PaiQian": {
         "next": [
-            "GoPaiQian"
+            "GoPaiQian_Yes",
+            "GoPaiQian_No"
         ],
         "interrupt": []
     },
-    "GoPaiQian": {
-        "recognition": "OCR",
-        "expected": "派遣公司",
+    "GoPaiQian_Yes": {
+        "recognition": "TemplateMatch",
+        "template": "PaiQian/GoPaiQian_Yes.png",
         "roi": [
-            847,
-            52,
-            433,
-            668
+            1078,
+            397,
+            184,
+            51
         ],
         "action": "Click",
         "target": true,
         "next": [
             "GanYing"
+        ]
+    },
+    "GoPaiQian_No": {
+        "recognition": "TemplateMatch",
+        "template": "PaiQian/GoPaiQian_No.png",
+        "roi": [
+            1078,
+            397,
+            184,
+            51
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "PaiQian-Back"
         ]
     },
     "GanYing": {
