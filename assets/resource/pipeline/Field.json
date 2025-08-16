@@ -11,30 +11,16 @@
         ]
     },
     "GoField_Yes": {
-        "recognition": "ColorMatch",
-        "lower": [
-            167,
-            47,
-            38
-        ],
-        "upper": [
-            195,
-            124,
-            120
-        ],
+        "recognition": "OCR",
+        "expected": "外勤",
         "roi": [
-            456,
-            369,
-            132,
-            135
+            435,
+            452,
+            166,
+            90
         ],
         "action": "Click",
-        "target_offset": [
-            -10,
-            10,
-            0,
-            0
-        ],
+        "target": true,
         "next": [
             "Field_Receive_1"
         ]
@@ -135,6 +121,14 @@
         ]
     },
     "GoField_No": {
+        "recognition": "TemplateMatch",
+        "template": "GoField_No.png",
+        "roi": [
+            904,
+            236,
+            178,
+            102
+        ],
         "next": [
             "Lobby"
         ],
