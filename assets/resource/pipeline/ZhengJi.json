@@ -144,7 +144,6 @@
             0
         ],
         "next": [
-            "Lack_ZhengJi",
             "NoCompletedQueue",
             "ZhengJiAddEnd"
         ],
@@ -154,6 +153,7 @@
             "SkipZhengJi",
             "YesZhengJi",
             "ZhengJiAdd",
+            "Lack_ZhengJi",
             "WuZi",
             "Add"
         ]
@@ -189,6 +189,7 @@
             "SkipZhengJi",
             "YesZhengJi",
             "ZhengJiAdd",
+            "Lack_ZhengJi",
             "WuZi",
             "Add",
             "ZhengJiAddEnd",
